@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>E&D Bank</title>
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+ <style>
+ body {
+ font-family: Arial, sans-serif;
+ margin: 0;
+ padding: 0;
+ background-color: rgb(248, 244, 244);
+ overflow-x: hidden;
+ width: 100%;
+ }
+
+ header {
+ background-color: rgb(11, 47, 15);
+ color: rgb(255, 255, 255);
+ padding: 20px;
+ padding-top: 40px;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ width: 100%;
+ }
+
+ .top-section {
+ display: flex;
+ justify-content: space-between;
+ width: 100%;
+ max-width: 1200px;
+ }
+
+ .top-section .left ul {
+ display: flex;
+ list-style: none;
+ padding: 0;
+ margin: 0;
+ }
+
+ .top-section .left ul li {
+ margin-right: 15px;
+ }
+
+ .top-section .left ul li a {
+ color: rgb(255, 255, 255);
+ text-decoration: none;
+ }
+
+ nav ul {
+ list-style: none;
+ margin: 0;
+ padding: 0;
+ display: flex;
+ justify-content: center;
+ flex-wrap: wrap;
+ }
+
+ nav ul li {
+ margin: 0 10px;
+ position: relative;
+ }
+
+ nav ul li a {
+ color: rgb(255, 255, 255);
+ text-decoration: none;
+ padding: 5px 10px;
+ }
+
+ nav ul li a:hover {
+ text-decoration: underline;
+ }
+
+ .login-section {
+ height: 450px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ position: relative;
+ background-size: cover;
+ background-position: center;
+ }
+
+ .login-box {
+ background: rgba(244, 246, 245, 0.932);
+ padding: 50px;
+ border-radius: 10px;
+ width: 45%;
+ max-width: 550px;
+ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+ background: rgba(255, 255, 255, 0.8); /* Soft transparent background */
+ backdrop-filter: blur(10px); /* Subtle blur effect */
+ padding: 40px;
+ border-radius: 20px; /* Rounded corners for modern look */
+ width: 100%;
+ max-width: 450px;
+ box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Softer, larger shadow for depth */
+ }
+
+ 
+
+.login-box h2 {
+ text-align: center;
+ font-size: 28px;
+ color: #1b5e20; /* Deep green to match theme */
+}
+
+.login-box label {
+ display: block;
+ margin: 10px 0 5px;
+ font-weight: bold;
+ color: #2c3e50;
+}
+
+.login-box input[type="text"],
+.login-box input[type="password"] {
+ width: 100%;
+ padding: 12px;
+ margin-bottom: 20px;
+ border: 1px solid #cfd8dc;
+ border-radius: 10px;
+ font-size: 16px;
+}
+
+.login-box input[type="text"]:focus,
+.login-box input[type="password"]:focus {
+ outline: none;
+ border-color: #66bb6a; /* Highlight on focus */
+}
+
+.login-box button {
+ width: 100%;
+ background-color: #1b5e20;
+ color: white;
+ font-size: 18px;
+ padding: 12px;
+ border: none;
+ border-radius: 10px;
+ cursor: pointer;
+ transition: background-color 0.3s ease-in-out;
+}
+
+.login-box button:hover {
+ background-color: #388e3c; /* Slightly lighter green on hover */
+}
+
+ .products-container {
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: center;
+ gap: 20px;
+ padding: 40px;
+ max-width: 100%;
+ margin: 0 auto;
+ }
+
+ .products-section {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 40px;
+ max-width: 1000px;
+ width: 100%;
+ }
+
+ .product-cc {
+ background: rgba(243, 240, 240, 0.9);
+ background-image: url('images/airplane.jpg');
+ background-size: cover;
+ border-radius: 10px;
+ padding: 30px;
+ box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+ text-align: center;
+ transition: background-image 1s ease-in-out; /* Smooth fade-in */
+ color: white;
+
+ }
+
+ .product-savings {
+ background: rgba(243, 240, 240, 0.9);
+ background-image: url('images/clientconvo.jpg');
+ background-size: cover;
+ border-radius: 10px;
+ padding: 30px;
+ box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+ text-align: center;
+ transition: background-image 1s ease-in-out; /* Smooth fade-in */
+ color: white;
+
+ }
+
+ .product img {
+ max-width: 100%;
+ border-radius: 10px;
+ }
+
+ .product-invest {
+ outline-style: double;
+ border-radius: 10px; 
+ background-color: rgb(27, 94, 32);
+ color: white; 
+ text-align: center;
+ font-family: Verdana, Geneva, Tahoma, sans-serif;
+ font-style: italic;
+ background-image: url('images/investpic.jpg');
+ background-size: cover;
+ background-position: center;
+ }
+
+ .product-ins {
+ outline-style: double;
+ border-radius: 10px;
+ color: rgb(238, 246, 239);
+ font-size: 14px;
+ text-align: center;
+ background-color: rgb(27, 94, 32);
+ font-family: Verdana, Geneva, Tahoma, sans-serif;
+ font-style: oblique;background-image: url('images/opensign.jpg');
+ background-size: cover;
+ background-position: center;
+ }
+
+ .rotating-image {
+ height: 250px;
+ width: 100%;
+ background-size: cover;
+ background-position: center;
+ border-radius: 10px;
+ }
+
+ .image-placeholder {
+ width: 100%;
+ background-image: url('images/carded.png');
+ background-size: cover;
+ max-width: 800px;
+ height: 700px;
+ background-color: rgb(236, 241, 236);
+ display: flex;
+ justify-content: baseline;
+ align-items: center;
+ border-radius: 10px;
+ margin-top: 40px;
+ flex-direction: column;
+ color: rgb(11, 47, 15);
+ font-size: 25px;
+ text-align: center;
+ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+ font-style: oblique;
+ }
+
+ .info-ad {
+ margin-top: 40px;
+ padding: 50px;
+ background-color: rgb(11, 47, 15);
+ color: white;
+ border-radius: 10px;
+ box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+ text-align: center;
+ width: 100%;
+ }
+
+ .footer {
+ background-color: rgb(115, 114, 114);
+ color: rgb(255, 255, 255);
+ padding: 40px;
+ text-align: center;
+ padding-left: 50px;
+ }
+
+ .carousel-container {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ margin: 20px 0;
+ position: relative;
+}
+
+.carousel {
+ display: flex;
+ overflow: hidden;
+ width: 80%;
+ max-width: 900px;
+}
+
+.carousel-item {
+ flex: 0 0 200px;
+ margin: 10px;
+ padding: 20px;
+ text-align: center;
+ background-color: rgb(11, 47, 15); /* Dark green background */
+ border-radius: 10px;
+ box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+ color: white;
+ font-size: 18px;
+ font-weight: bold;
+ user-select: none;
+}
+
+.carousel-item i {
+ font-size: 40px; /* Larger icon */
+ color: #a5d6a7; /* Lighter green for contrast */
+ margin-bottom: 10px;
+}
+
+.carousel-item p {
+ margin: 0;
+ margin-top: 10px;
+ font-size: 16px;
+ color: #e0f2f1; /* Light green for text */
+}
+
+.carousel-button {
+ background-color: rgba(11, 98, 31, 0.353);
+ color: white;
+ border: none;
+ font-size: 30px;
+ cursor: pointer;
+ padding: 10px 15px;
+ border-radius: 50%;
+}
+
+.carousel-button:hover {
+ background-color: rgba(18, 113, 26, 0.3);
+}
+
+.carousel-button:disabled {
+ opacity: 0.5;
+ cursor: not-allowed;
+}
+
+.login-section::before {
+ content: '';
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 150%;
+ height: 450px; /* Height of the stripe */
+ background-color: rgb(27, 94, 32); /* Dark green color */
+ z-index: -1; /* Push it behind the login box */
+ background-image: url('images/greenback.jpg');
+ background-size: cove;
+ background-position: center;
+}
+
+.promo-section {
+ background: linear-gradient(to right, rgb(27, 94, 32), rgb(56, 142, 60));
+ padding: 80px 40px;
+ color: white;
+ text-align: center;
+ border-radius: 15px;
+ margin: 50px auto;
+ width: 90%;
+ max-width: 1200px;
+ box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+ animation: slideIn 1.5s ease-out;
+}
+
+.promo-section h2 {
+ font-size: 40px;
+ margin-bottom: 20px;
+ font-weight: bold;
+}
+
+.promo-section p {
+ font-size: 20px;
+ margin-bottom: 30px;
+}
+
+.promo-section .cta-button {
+ background-color: rgb(11, 47, 15);
+ color: rgb(242, 246, 242);
+ padding: 15px 30px;
+ font-size: 18px;
+ font-weight: bold;
+ border-radius: 50px;
+ border: none;
+ cursor: pointer;
+ transition: background-color 0.3s ease-in-out;
+ box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.promo-section .cta-button:hover {
+ background-color: rgb(94, 205, 107);
+}
+
+.promo-card-container {
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: center;
+ gap: 30px;
+ margin-top: 40px;
+}
+
+.promo-card {
+ background: rgb(11, 47, 15);
+ padding: 30px;
+ border-radius: 20px;
+ max-width: 300px;
+ text-align: center;
+ box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+ transition: transform 0.3s ease;
+}
+
+.promo-card:hover {
+ transform: translateY(-10px);
+}
+
+.promo-card h3 {
+ font-size: 24px;
+ margin-bottom: 10px;
+}
+
+.promo-card p {
+ font-size: 16px;
+ color: rgb(251, 248, 248);
+ margin-bottom: 20px;
+}
+
+.promo-card .card-button {
+ background-color: rgb(27, 94, 32);
+ color: white;
+ padding: 10px 20px;
+ border-radius: 30px;
+ border: none;
+ font-size: 16px;
+ cursor: pointer;
+ transition: background-color 0.3s;
+}
+
+.promo-card .card-button:hover {
+ background-color: rgb(56, 142, 60);
+}
+
+
+
+ </style>
+</head>
+<body>
+ <header>
+ <div class="top-section">
+ <div class="left">
+ <ul>
+ <li><a href="#">Personal</a></li>
+ <li><a href="#">Commercial</a></li>
+ <li><a href="#">Wealth</a></li>
+ </ul>
+ </div>
+ </div>
+ <h1>E&D National Bank</h1>
+ <nav>
+ <ul>
+ <li><a href="#">Checking & Savings</a></li>
+ <li><a href="#">Credit Cards</a></li>
+ <li><a href="#">Loans</a></li>
+ <li><a href="#">Mortgage</a></li>
+ <li><a href="#">Investing & Retirement</a></li>
+ <li><a href="#">Insurance</a></li>
+ <li><a href="#">Money & Mindset</a></li>
+ </ul>
+ </nav>
+ </header>
+
+ <section class="login-section" id="login">
+ <div class="stripe"></div>
+ <div class="login-box">
+ <h2>Log In</h2>
+ <form action="account.html" method="GET">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+    <button type="submit">Log In</button>
+</form>
+
+ </div>
+ </section>
+
+ <div class="carousel-container">
+ <button class="carousel-button prev">&#10094;</button>
+ <div class="carousel">
+ <div class="carousel-item">
+ <i class="fas fa-credit-card"></i>
+ <p>Credit Cards</p>
+ </div>
+ <div class="carousel-item">
+ <i class="fas fa-wallet"></i>
+ <p>Checking</p>
+ </div>
+ <div class="carousel-item">
+ <i class="fas fa-briefcase"></i>
+ <p>Business</p>
+ </div>
+ <div class="carousel-item">
+ <i class="fas fa-plane"></i>
+ <p>Travel</p>
+ </div>
+ <div class="carousel-item">
+ <i class="fas fa-piggy-bank"></i>
+ <p>Savings</p>
+ </div>
+ <div class="carousel-item">
+ <i class="fas fa-home"></i>
+ <p>Home Loans</p>
+ </div>
+ <div class="carousel-item">
+ <i class="fas fa-car"></i>
+ <p>Auto</p>
+ </div>
+ <div class="carousel-item">
+ <i class="fas fa-chart-line"></i>
+ <p>Investments</p>
+ </div>
+ <div class="carousel-item">
+ <i class="fas fa-building"></i>
+ <p>Commercial</p>
+ </div>
+ </div>
+ <button class="carousel-button next">&#10095;</button>
+ </div>
+ 
+ 
+
+ <div class="products-container">
+ <section class="products-section">
+ <div class="product-ins">
+ <div class="rotating-image" id="insurance-image"></div>
+ <h3>"Peace of mind for your most valuable assets!"</h3>
+ <p>Get business insurance from someone who knows your business.</p>
+ </div>
+ <div class="product-cc">
+ <div class="rotating-image" id="travel-card-image"></div>
+ <h3>Adventure Credit Card | 7% APR</h3>
+ <p>"Fly free, dream big! Your journeys await."</p>
+ </div>
+ <div class="product-savings">
+ <div class="rotating-image" id="savings-image"></div>
+ <h3>Secure Savings Plan</h3>
+ <p>"Build a future that counts!"</p>
+ </div>
+ <div class="product-invest">
+ <div class="rotating-image" id="investment-image"></div>
+ </div>
+ </section>
+
+ 
+
+ <div class="image-placeholder">
+ <h4>E&D Freedom</h4>
+ <p>Earn 3x on dinning and 2x ontravel | $95 nnual fee</p>
+ </div>
+ <section class="promo-section">
+ <h2>Unlock Your Potential with E&D Bank</h2>
+ <p>Join over 1 million customers already making smarter financial moves. Get exclusive cashback rewards, financial tools, and unparalleled customer service to help you thrive.</p>
+ <button class="cta-button">Join Now & Save Big!</button>
+ 
+ <div class="promo-card-container">
+ <div class="promo-card">
+ <h3>Cashback Rewards</h3>
+ <p>Earn up to 5% cashback on all your favorite purchases. No annual fee for the first year!</p>
+ <button class="card-button">Learn More</button>
+ </div>
+ <div class="promo-card">
+ <h3>Travel Smart</h3>
+ <p>Enjoy exclusive lounge access and up to $200 travel credits. Your journey starts here!</p>
+ <button class="card-button">Explore Benefits</button>
+ </div>
+ <div class="promo-card">
+ <h3>Invest Your Way</h3>
+ <p>Choose from personalized portfolio options and grow your wealth with confidence.</p>
+ <button class="card-button">Start Investing</button>
+ </div>
+ </div>
+ </section>
+ 
+ <div class="info-ad">
+ <h4>Money Market Account</h4>
+ <p><strong>Resolve to save big in 2025.</strong></p>
+ <p>Let’s put your money to work. Even a small tax refund or annual bonus can go toward something big.</p>
+ <p><a href="#" target="_blank">Open now</a> to get started with a Truist One Money Market account.</p>
+ <p><a href="#" target="_blank">Learn more</a></p>
+ </div>
+ </div>
+
+ <footer class="footer">
+ <p>&copy; 2025 E&D Bank. Member FDIC. Terms & Conditions | Privacy Policy | Security Information</p>
+ <p>Customer support: Call us at 1-800-123-4567 or visit our nearest branch.</p>
+ </footer>
+
+ <script>
+ function startImageRotation(elementId, images) {
+ let index = 0;
+ setInterval(() => {
+ const element = document.getElementById(elementId);
+ element.style.backgroundImage = `url(${images[index]})`;
+ index = (index + 1) % images.length;
+ }, 5000); // 5-second interval for rotation
+ }
+
+ // Replace with actual image URLs or paths
+ startImageRotation("fam fun.jpg", ["fam travel.jpg", "cashback.jpg"]);
+ startImageRotation("piggybank.jpg", ["2025growing.jpg", "investing.jpg"]);
+
+
+ document.addEventListener('DOMContentLoaded', () => {
+ const productElement = document.querySelector('.product-cc');
+ const images = [
+ 'images/plane2.jpg',
+ 'images/cashback.jpg',
+ 'images/famvacay.jpg',
+ ];
+ let currentIndex = 0;
+
+ function changeBackground() {
+ productElement.style.backgroundImage = `url('${images[currentIndex]}')`;
+ currentIndex = (currentIndex + 1) % images.length; // Rotate index
+ }
+
+ // Initial call and then every 5 seconds
+ changeBackground();
+ setInterval(changeBackground, 5000); // 5000ms = 5 seconds
+ });
+
+ document.addEventListener('DOMContentLoaded', () => {
+ const carousel = document.querySelector('.carousel');
+ const items = document.querySelectorAll('.carousel-item');
+ const prevButton = document.querySelector('.carousel-button.prev');
+ const nextButton = document.querySelector('.carousel-button.next');
+
+ let scrollPosition = 0;
+ const itemWidth = items[0].offsetWidth + 20; // item width + margin
+
+ prevButton.addEventListener('click', () => {
+ scrollPosition = Math.max(scrollPosition - itemWidth, 0);
+ carousel.scrollTo({
+ left: scrollPosition,
+ behavior: 'smooth'
+ });
+ });
+
+ nextButton.addEventListener('click', () => {
+ scrollPosition = Math.min(
+ scrollPosition + itemWidth,
+ carousel.scrollWidth - carousel.clientWidth
+ );
+ carousel.scrollTo({
+ left: scrollPosition,
+ behavior: 'smooth'
+ });
+ });
+});
+
+
+ </script>
+</body>
+</html>
